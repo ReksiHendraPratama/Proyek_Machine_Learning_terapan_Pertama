@@ -13,10 +13,21 @@ Model prediksi churn telah menunjukkan hasil yang menjanjikan. Studi oleh Wagh e
 - Ahmad, A. K., Jafar, A., & Aljoumaa, K. (2019). *Customer churn prediction in telecom using machine learning in big data platform*. Journal of Big Data, 6(28). https://doi.org/10.1186/s40537-019-0191-6
 - Wagh, S. K., et al. (2023). *Customer churn prediction in telecom sector using machine learning techniques*. Results in Control and Optimization, 14, 100342. https://doi.org/10.1016/j.rico.2023.100342
 
-
-
 ---
 
+## 🎯 2. Business Understanding
+
+### Problem Statement
+- Bagaimana memprediksi pelanggan yang akan melakukan churn?
+
+### Goals
+- Mengembangkan model klasifikasi untuk mengidentifikasi pelanggan yang memiliki kemungkinan besar akan churn.
+
+### Solution Statement
+- Membangun beberapa model seperti Logistic Regression, Random Forest, SVM, Naive Bayes
+- Evaluasi dilakukan berdasarkan metrik klasifikasi: accuracy, precision, recall, F1-score
+
+---
 
 
 
