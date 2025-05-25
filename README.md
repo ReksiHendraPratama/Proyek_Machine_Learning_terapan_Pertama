@@ -249,5 +249,18 @@ Namun, untuk pendekatan yang **lebih seimbang dan efisien**, **Logistic Regressi
   - Jenis kontrak: bulanan
 
 ---
+## 💡 8. Kesimpulan
+
+Proyek ini berhasil membangun model machine learning untuk memprediksi risiko churn pada pelanggan perusahaan telekomunikasi dengan performa yang baik. **Logistic Regression** terbukti menjadi model terbaik secara keseluruhan dengan **akurasi 80.45% dan F1-score 59.86%**, diikuti oleh **Support Vector Machine (SVM)** dan **Random Forest**, yang juga menunjukkan performa seimbang namun sedikit lebih rendah.
+
+Model **Bernoulli Naive Bayes** mencatat **recall tertinggi (79.86%)**, menjadikannya pilihan ideal untuk mendeteksi sebanyak mungkin pelanggan yang berisiko churn, meskipun memiliki precision yang rendah. Teknik **encoding fitur kategorikal** dan **normalisasi numerik** memberikan kontribusi besar terhadap stabilitas model, terutama pada model-model seperti SVM dan Logistic Regression.
+
+Dibandingkan dengan studi literatur, hasil Logistic Regression dalam proyek ini menunjukkan keseimbangan yang baik antara sensitivitas (recall) dan ketepatan (precision), menjadikannya pilihan yang layak untuk implementasi bisnis nyata. Meski begitu, performa model masih dapat ditingkatkan lebih lanjut melalui pendekatan seperti:
+- **Hyperparameter tuning** pada Random Forest dan SVM.
+- **Oversampling** untuk menangani distribusi target `Churn` yang tidak seimbang.
+- **Feature selection** untuk menyederhanakan model tanpa mengorbankan performa.
+
+Dengan pendekatan ini, perusahaan dapat secara proaktif mempertahankan pelanggan berisiko tinggi dengan strategi personalisasi seperti diskon loyalitas atau peningkatan layanan, dan pada akhirnya **menurunkan churn rate serta meningkatkan Customer Lifetime Value (CLV)**.
+
 
 
