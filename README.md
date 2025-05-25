@@ -19,15 +19,41 @@ Model prediksi churn telah menunjukkan hasil yang menjanjikan. Studi oleh Wagh e
 
 ### Problem Statement
 - Bagaimana memprediksi pelanggan yang akan melakukan churn?
+- Faktor-faktor apa saja yang paling berkontribusi terhadap kemungkinan pelanggan melakukan churn?
 
 ### Goals
 - Mengembangkan model klasifikasi untuk mengidentifikasi pelanggan yang memiliki kemungkinan besar akan churn.
+- Menggali fitur-fitur paling signifikan yang memengaruhi perilaku churn.
+- Memberikan insight yang dapat digunakan tim marketing atau retensi untuk mengambil keputusan yang lebih baik.
 
 ### Solution Statement
-- Membangun beberapa model seperti Logistic Regression, Random Forest, SVM, Naive Bayes
-- Evaluasi dilakukan berdasarkan metrik klasifikasi: accuracy, precision, recall, F1-score
+- Membangun beberapa model seperti Logistic Regression, Random Forest, SVM, Naive Bayes.
+- Menggunakan teknik visualisasi dan pemilihan fitur untuk menganalisis variabel penting.
+- Evaluasi dilakukan berdasarkan metrik klasifikasi: accuracy, precision, recall, F1-score.
+
 
 ---
+
+
+### Informasi Dataset
+
+| Keterangan       | Detail                                                                 |
+|------------------|------------------------------------------------------------------------|
+| Jumlah Data      | 7.043 baris                                                            |
+| Jumlah Fitur     | 21 kolom                                                               |
+| Target           | `Churn` (Yes / No)                                                     |
+| Format           | CSV                                                                    |
+| Sumber           | [Kaggle - Telco Customer Churn Dataset](https://www.kaggle.com/datasets/blastchar/telco-customer-churn) |
+
+### Contoh Data
+
+| customerID | gender | SeniorCitizen | Partner | Dependents | tenure | PhoneService | InternetService | Contract     | PaymentMethod          | MonthlyCharges | TotalCharges | Churn |
+|------------|--------|----------------|---------|------------|--------|---------------|------------------|--------------|------------------------|----------------|--------------|--------|
+| 7590-VHVEG | Female | 0              | Yes     | No         | 1      | No            | DSL              | Month-to-month | Electronic check     | 29.85          | 29.85        | Yes    |
+| 5575-GNVDE | Male   | 0              | No      | No         | 34     | Yes           | DSL              | One year       | Mailed check         | 56.95          | 1889.5       | No     |
+| 3668-QPYBK | Male   | 0              | No      | No         | 2      | Yes           | Fiber optic      | Month-to-month | Electronic check     | 53.85          | 108.15       | Yes    |
+| 7795-CFOCW | Male   | 0              | Yes     | No         | 45     | No            | No               | One year       | Bank transfer (auto) | 42.30          | 1840.75      | No     |
+| 9237-HQITU | Female | 0              | Yes     | Yes        | 2      | Yes           | Fiber optic      | Month-to-month | Electronic check     | 70.70          | 151.65       | Yes    |
 
 
 
