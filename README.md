@@ -9,15 +9,13 @@ Menurut Wagh et al. (2023), biaya mendapatkan pelanggan baru bisa 5 kali lebih b
 
 Model prediksi churn telah menunjukkan hasil yang menjanjikan. Studi oleh Wagh et al. menggunakan Random Forest dan menghasilkan akurasi hingga **99.09%**, menandakan kekuatan model ini untuk mendukung keputusan bisnis secara strategis. Pendekatan seperti ini juga meningkatkan nilai umur pelanggan (Customer Lifetime Value) dan menjaga loyalitas mereka melalui layanan yang dipersonalisasi.
 
-📚 Referensi:
-- Wagh, S. K., et al. (2023). *Customer churn prediction in telecom sector using machine learning techniques*. [Elsevier - Results in Control and Optimization](https://doi.org/10.1016/j.rico.2023.100342)
-- 
-
----
-
 ### Referensi
 - Wagh, S. K., et al. (2023). *Customer churn prediction in telecom sector using machine learning techniques*. [Elsevier - Results in Control and Optimization](https://doi.org/10.1016/j.rico.2023.100342)
 - Ahmad, A. K., Jafar, A., & Aljoumaa, K. (2019). *Customer churn prediction in telecom using machine learning in big data platform*. Journal of Big Data, 6(28). https://doi.org/10.1186/s40537-019-0191-6
+
+
+---
+
 
 
 
