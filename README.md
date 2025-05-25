@@ -82,6 +82,13 @@ Model prediksi churn telah menunjukkan hasil yang menjanjikan. Studi oleh Wagh e
 | `TotalCharges`      | Total biaya yang dibayarkan selama menjadi pelanggan                     |
 | `Churn`             | Target/label: Apakah pelanggan berhenti (`Yes`) atau tetap (`No`)        |
 
+### 📉 Distribusi Churn Pelanggan
+
+Gambar di bawah menunjukkan bahwa mayoritas pelanggan **tidak melakukan churn** (sekitar 73%), sementara hanya sekitar **27% pelanggan yang churn**.
+
+![Persentase Churn Pelanggan](Screenshot%202025-05-25%20144300.png)
+
+
 
 ---
 ## 🧹 4. Data Preparation
