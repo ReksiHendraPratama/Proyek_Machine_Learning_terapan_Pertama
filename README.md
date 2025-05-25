@@ -34,7 +34,7 @@ Model prediksi churn telah menunjukkan hasil yang menjanjikan. Studi oleh Wagh e
 
 ---
 
-
+## 3. Data Understanding
 ### Informasi Dataset
 
 | Keterangan       | Detail                                                                 |
@@ -83,3 +83,36 @@ Model prediksi churn telah menunjukkan hasil yang menjanjikan. Studi oleh Wagh e
 | `Churn`             | Target/label: Apakah pelanggan berhenti (`Yes`) atau tetap (`No`)        |
 
 
+---
+## 🧹 4. Data Preparation
+
+### 4.1 Data Cleaning
+- Menghapus kolom `customerID` karena tidak relevan.
+- Memisahkan fitur (`X`) dan target (`y`).
+
+### 4.2 Train-Test Split
+- Proporsi 80:20
+- Data latih: 5634, Data uji: 1409
+
+### 4.3 Encoding dan Normalisasi
+- **OneHotEncoder** digunakan untuk fitur kategorikal.
+- **MinMaxScaler** digunakan untuk fitur numerik (`tenure`, `MonthlyCharges`, dll.).
+- Fitur yang telah di-encode dan diskalakan digabung menjadi `X_train_final` dan `X_test_final`.
+
+---
+
+## 🤖 5. Modeling
+
+### 5.1 Setup Model
+DataFrame disiapkan untuk menyimpan hasil akurasi model:
+- BernoulliNB
+- RandomForestClassifier
+- LogisticRegression
+- SVM
+
+### 5.2 Training dan Evaluasi Model
+Setiap model dilatih dan diuji:
+- **BernoulliNB**: cocok untuk data biner
+- **RandomForestClassifier**: kuat dan fleksibel
+- **LogisticRegression**: baseline model
+- **SVM**: efektif dengan fitur yang ternormalisasi
