@@ -119,36 +119,73 @@ Heatmap berikut memperlihatkan korelasi antara fitur numerik terhadap variabel t
 ## 🤖 5. Modeling
 
 ### 5.1 Setup Model
-DataFrame disiapkan untuk menyimpan hasil akurasi model:
-- BernoulliNB
-- RandomForestClassifier
-- LogisticRegression
-- SVM
+DataFrame disiapkan untuk menyimpan hasil evaluasi dari beberapa algoritma klasifikasi yang akan digunakan, yaitu:
+
+- **Bernoulli Naive Bayes**
+- **Random Forest Classifier**
+- **Logistic Regression**
+- **Support Vector Machine (SVM)**
+
+Model dipilih berdasarkan karakteristik data yang memiliki kombinasi fitur kategorikal dan numerik serta target biner (`Churn`).
+
+---
 
 ### 5.2 Training dan Evaluasi Model
-Setiap model dilatih dan diuji:
-- **BernoulliNB**: cocok untuk data biner
-- **RandomForestClassifier**: kuat dan fleksibel
-- **LogisticRegression**: baseline model
-- **SVM**: efektif dengan fitur yang ternormalisasi
 
+#### ✅ Bernoulli Naive Bayes
+- **Kelebihan:**
+  - Cepat dalam pelatihan dan prediksi.
+  - Cocok untuk data biner seperti hasil One-Hot Encoding.
+  - Memiliki recall tinggi (baik untuk mendeteksi churn).
+- **Kekurangan:**
+  - Precision rendah (banyak false positive).
+  - Asumsi independensi antar fitur sering tidak realistis.
+
+#### 🌲 Random Forest Classifier
+- **Kelebihan:**
+  - Dapat menangani fitur kategorikal dan numerik dengan baik.
+  - Cenderung tidak overfitting karena menggunakan banyak pohon.
+  - Memberikan informasi tentang pentingnya fitur.
+- **Kekurangan:**
+  - Waktu pelatihan lebih lama.
+  - Kurang transparan dibanding model linier.
+
+#### 📈 Logistic Regression
+- **Kelebihan:**
+  - Mudah diinterpretasikan dan transparan.
+  - Cepat dalam pelatihan dan prediksi.
+  - Seimbang dalam precision dan recall.
+- **Kekurangan:**
+  - Asumsi hubungan linear antara fitur dan target logit.
+  - Kurang efektif untuk data yang sangat kompleks atau tidak linear.
+
+#### 🔵 Support Vector Machine (SVM)
+- **Kelebihan:**
+  - Kuat untuk data berdimensi tinggi.
+  - Dapat menangani non-linearitas dengan kernel (misalnya RBF).
+- **Kekurangan:**
+  - Tidak efisien untuk dataset besar.
+  - Parameter C dan gamma perlu tuning hati-hati.
+
+---
 
 ## 📈 6. Evaluation
 
-Tahap evaluasi bertujuan untuk mengukur performa model dalam memprediksi pelanggan yang akan melakukan churn. Evaluasi dilakukan menggunakan metrik-metrik klasifikasi berikut:
-
 ### 🔢 Metrik Evaluasi yang Digunakan
 
-| Metrik        | Deskripsi                                                                 |
-|---------------|---------------------------------------------------------------------------|
-| **Accuracy**  | Proporsi prediksi yang benar terhadap seluruh data.                       |
-| **Precision** | Proporsi prediksi churn yang benar dibandingkan total prediksi churn.     |
-| **Recall**    | Proporsi pelanggan yang benar-benar churn yang berhasil terdeteksi model. |
-| **F1-Score**  | Rata-rata harmonis dari Precision dan Recall.                             |
+| **Metrik**     | **Deskripsi** |
+|----------------|----------------|
+| **Accuracy**   | Rasio prediksi yang benar dari seluruh prediksi. Cocok jika data seimbang. |
+| **Precision**  | Dari seluruh prediksi churn, berapa banyak yang benar-benar churn. Fokus untuk menghindari false positive. |
+| **Recall**     | Dari seluruh pelanggan yang benar-benar churn, berapa banyak yang berhasil dideteksi model. Fokus untuk menghindari false negative. |
+| **F1-Score**   | Rata-rata harmonis antara precision dan recall. Cocok jika perlu keseimbangan antara keduanya. |
 
-> Metrik-metrik ini dipilih karena:
-> - **Recall** penting untuk meminimalkan risiko kehilangan pelanggan.
-> - **Precision** penting untuk menghindari penargetan pelanggan yang sebenarnya tidak akan churn.
+> **Catatan**:
+> - **Recall tinggi** penting jika perusahaan ingin memastikan semua pelanggan berisiko churn tertangkap (meskipun ada false positive).
+> - **Precision tinggi** penting jika ingin menghindari salah target pelanggan yang tidak akan churn.
+> - **F1-score** membantu menyeimbangkan keduanya.
+
+---
 
 ### 📊 Hasil Evaluasi Masing-Masing Model
 
@@ -158,6 +195,7 @@ Tahap evaluasi bertujuan untuk mengukur performa model dalam memprediksi pelangg
 | Random Forest         | 78.70%   | 62.59%    | 49.20% | 0.5509   |
 | SVM                   | 79.32%   | 64.29%    | 49.73% | 0.5608   |
 | Naive Bayes (BernoulliNB) | 70.89%   | 47.16%    | 79.86% | 0.5930   |
+
 
 ### 🔍 Visualisasi Confusion Matrix
 
