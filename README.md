@@ -2,7 +2,7 @@
 
 ## Domain Proyek: Telekomunikasi
 
-### Latar Belakang
+## 1. Latar Belakang
 Industri telekomunikasi merupakan salah satu industri yang menghasilkan data dalam jumlah sangat besar setiap harinya. Salah satu permasalahan utama dalam industri ini adalah **customer churn** — kondisi ketika pelanggan memutuskan untuk berhenti berlangganan layanan. Kehilangan pelanggan bukan hanya menurunkan pendapatan tetapi juga meningkatkan biaya akuisisi pelanggan baru.
 
 Menurut Wagh et al. (2023), biaya mendapatkan pelanggan baru bisa 5 kali lebih besar daripada mempertahankan pelanggan lama, sehingga fokus perusahaan seharusnya diarahkan pada **strategi retensi pelanggan berbasis prediksi**. Dengan pendekatan machine learning, perusahaan dapat memanfaatkan data histori pelanggan untuk mengidentifikasi siapa yang kemungkinan akan churn dan mengambil tindakan preventif secara tepat waktu.
