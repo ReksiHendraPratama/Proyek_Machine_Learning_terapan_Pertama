@@ -45,7 +45,7 @@ Model prediksi churn telah menunjukkan hasil yang menjanjikan. Studi oleh Wagh e
 | Format           | CSV                                                                    |
 | Sumber           | [Kaggle - Telco Customer Churn Dataset](https://www.kaggle.com/datasets/blastchar/telco-customer-churn) |
 
-### Contoh Data
+### Contoh Data (10 Fitur)
 
 | customerID | gender | SeniorCitizen | Partner | Dependents | tenure | PhoneService | InternetService | Contract     | PaymentMethod          | MonthlyCharges | TotalCharges | Churn |
 |------------|--------|----------------|---------|------------|--------|---------------|------------------|--------------|------------------------|----------------|--------------|--------|
