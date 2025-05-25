@@ -116,3 +116,73 @@ Setiap model dilatih dan diuji:
 - **RandomForestClassifier**: kuat dan fleksibel
 - **LogisticRegression**: baseline model
 - **SVM**: efektif dengan fitur yang ternormalisasi
+
+
+## 📈 6. Evaluation
+
+Tahap evaluasi bertujuan untuk mengukur performa model dalam memprediksi pelanggan yang akan melakukan churn. Evaluasi dilakukan menggunakan metrik-metrik klasifikasi berikut:
+
+### 🔢 Metrik Evaluasi yang Digunakan
+
+| Metrik        | Deskripsi                                                                 |
+|---------------|---------------------------------------------------------------------------|
+| **Accuracy**  | Proporsi prediksi yang benar terhadap seluruh data.                       |
+| **Precision** | Proporsi prediksi churn yang benar dibandingkan total prediksi churn.     |
+| **Recall**    | Proporsi pelanggan yang benar-benar churn yang berhasil terdeteksi model. |
+| **F1-Score**  | Rata-rata harmonis dari Precision dan Recall.                             |
+
+> Metrik-metrik ini dipilih karena:
+> - **Recall** penting untuk meminimalkan risiko kehilangan pelanggan.
+> - **Precision** penting untuk menghindari penargetan pelanggan yang sebenarnya tidak akan churn.
+
+### 📊 Hasil Evaluasi Masing-Masing Model
+
+| Model                 | Accuracy | Precision | Recall | F1-Score |
+|-----------------------|----------|-----------|--------|----------|
+| Logistic Regression   | 80.45%   | 65.81%    | 54.90% | 0.5986   |
+| Random Forest         | 78.70%   | 62.59%    | 49.20% | 0.5509   |
+| SVM                   | 79.32%   | 64.29%    | 49.73% | 0.5608   |
+| Naive Bayes (BernoulliNB) | 70.89%   | 47.16%    | 79.86% | 0.5930   |
+
+### 🔍 Visualisasi Confusion Matrix
+
+![Confusion Matrix - Logistic Regression](image_36.png)  
+*Contoh confusion matrix untuk Logistic Regression.*
+
+---
+
+## 📉 7. Analisis Hasil & Relevansi terhadap Business Understanding
+
+Berdasarkan hasil evaluasi model, berikut adalah analisis lebih lanjut serta keterkaitannya dengan tujuan bisnis:
+
+### 🔎 Analisis Model
+
+- **Logistic Regression** menunjukkan performa terbaik secara keseluruhan dengan **F1-score tertinggi** (0.5986). Ini menunjukkan keseimbangan yang baik antara mendeteksi churn dan menghindari kesalahan prediksi.
+- **Naive Bayes** memiliki **recall tertinggi** (79.86%), artinya model ini sangat sensitif dalam mendeteksi pelanggan yang akan churn, tetapi precision-nya rendah (banyak false positive).
+- **Random Forest dan SVM** menawarkan performa yang seimbang, namun sedikit di bawah Logistic Regression dari sisi F1-score.
+
+### 🧠 Relevansi Terhadap Business Understanding
+
+Tujuan utama proyek ini adalah membantu perusahaan memprediksi pelanggan yang berisiko churn agar bisa diberikan tindakan pencegahan seperti:
+- Penawaran spesial
+- Penguatan layanan
+- Komunikasi personal
+
+Model yang **recall-nya tinggi** (seperti Naive Bayes) cocok digunakan jika perusahaan lebih mementingkan untuk **mendeteksi sebanyak mungkin churn**, meskipun berisiko false positive.
+
+Namun, untuk pendekatan yang **lebih seimbang dan efisien**, **Logistic Regression** adalah pilihan terbaik:
+- Tidak terlalu banyak false positive
+- Tetap mampu menangkap sebagian besar churn
+- Mudah diimplementasikan dan dijelaskan ke pihak non-teknis
+
+### ✅ Rekomendasi Strategi
+- Gunakan Logistic Regression sebagai model utama prediksi churn.
+- Gunakan Naive Bayes sebagai second-opinion model dalam sistem early-warning churn dengan threshold yang lebih ketat.
+- Fokuskan retensi pada pelanggan hasil prediksi yang memiliki profil risiko tinggi berdasarkan fitur seperti:
+  - Tenure pendek
+  - Metode pembayaran: electronic check
+  - Jenis kontrak: bulanan
+
+---
+
+
