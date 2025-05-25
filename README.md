@@ -88,6 +88,14 @@ Gambar di bawah menunjukkan bahwa mayoritas pelanggan **tidak melakukan churn** 
 
 ![Persentase Churn Pelanggan](img/Screenshot%202025-05-25%20144300.png)
 
+### 🔗 Korelasi Fitur Numerik
+
+Heatmap berikut memperlihatkan korelasi antara fitur numerik terhadap variabel target `Churn`.
+
+- `tenure` memiliki korelasi negatif dengan churn (-0.35), menunjukkan pelanggan yang lebih lama cenderung tidak churn.
+- `MonthlyCharges` memiliki korelasi positif (0.19), menunjukkan semakin tinggi tagihan, kemungkinan churn meningkat.
+
+![Matriks Korelasi Fitur Numerik](img/Screenshot%202025-05-25%20144438.png)
 
 
 ---
@@ -153,8 +161,20 @@ Tahap evaluasi bertujuan untuk mengukur performa model dalam memprediksi pelangg
 
 ### 🔍 Visualisasi Confusion Matrix
 
-![Confusion Matrix - Logistic Regression](image_36.png)  
-*Contoh confusion matrix untuk Logistic Regression.*
+Berikut adalah visualisasi confusion matrix untuk masing-masing model:
+
+#### 📊 Bernoulli Naive Bayes
+![Confusion Matrix - BernoulliNB](img/Screenshot%202025-05-25%20144453.png)
+
+#### 🌲 Random Forest
+![Confusion Matrix - RandomForest](img/Screenshot%202025-05-25%20144516.png)
+
+#### 📈 Logistic Regression
+![Confusion Matrix - LogisticRegression](img/Screenshot%202025-05-25%20144523.png)
+
+#### 🔵 Support Vector Machine (SVM)
+![Confusion Matrix - SVM](img/Screenshot%202025-05-25%20144530.png)
+
 
 ---
 
