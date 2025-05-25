@@ -56,4 +56,30 @@ Model prediksi churn telah menunjukkan hasil yang menjanjikan. Studi oleh Wagh e
 | 9237-HQITU | Female | 0              | Yes     | Yes        | 2      | Yes           | Fiber optic      | Month-to-month | Electronic check     | 70.70          | 151.65       | Yes    |
 
 
+### Daftar Fitur dalam Dataset
+
+| Nama Fitur         | Deskripsi                                                                 |
+|--------------------|---------------------------------------------------------------------------|
+| `customerID`        | ID unik untuk setiap pelanggan                                            |
+| `gender`            | Jenis kelamin pelanggan (`Male` atau `Female`)                           |
+| `SeniorCitizen`     | Status lansia (0 = bukan lansia, 1 = lansia)                             |
+| `Partner`           | Status memiliki pasangan (`Yes` atau `No`)                               |
+| `Dependents`        | Status memiliki tanggungan seperti anak atau orang tua (`Yes` atau `No`) |
+| `tenure`            | Lama berlangganan dalam bulan                                            |
+| `PhoneService`      | Apakah pelanggan menggunakan layanan telepon (`Yes` atau `No`)           |
+| `MultipleLines`     | Apakah pelanggan menggunakan lebih dari satu jalur telepon               |
+| `InternetService`   | Jenis layanan internet yang digunakan (`DSL`, `Fiber optic`, `No`)       |
+| `OnlineSecurity`    | Layanan keamanan online (`Yes`, `No`, atau `No internet service`)        |
+| `OnlineBackup`      | Layanan backup data online (`Yes`, `No`, atau `No internet service`)     |
+| `DeviceProtection`  | Proteksi perangkat (`Yes`, `No`, atau `No internet service`)             |
+| `TechSupport`       | Dukungan teknis (`Yes`, `No`, atau `No internet service`)                |
+| `StreamingTV`       | Layanan streaming TV (`Yes`, `No`, atau `No internet service`)           |
+| `StreamingMovies`   | Layanan streaming film (`Yes`, `No`, atau `No internet service`)         |
+| `Contract`          | Jenis kontrak langganan (`Month-to-month`, `One year`, `Two year`)       |
+| `PaperlessBilling`  | Apakah pelanggan menerima tagihan tanpa kertas (`Yes` atau `No`)         |
+| `PaymentMethod`     | Metode pembayaran yang digunakan (misal: `Electronic check`)             |
+| `MonthlyCharges`    | Total biaya yang dibayarkan setiap bulan oleh pelanggan                  |
+| `TotalCharges`      | Total biaya yang dibayarkan selama menjadi pelanggan                     |
+| `Churn`             | Target/label: Apakah pelanggan berhenti (`Yes`) atau tetap (`No`)        |
+
 
