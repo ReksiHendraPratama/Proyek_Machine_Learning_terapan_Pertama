@@ -133,6 +133,13 @@ Model dipilih berdasarkan karakteristik data yang memiliki kombinasi fitur kateg
 ### 5.2 Training dan Evaluasi Model
 
 #### ✅ Bernoulli Naive Bayes
+
+Model ini menggunakan parameter default, dengan beberapa penyesuaian sebagai berikut:
+- `alpha=1.0`: smoothing Laplace untuk menghindari probabilitas nol.
+- `binarize=0.0`: fitur dibinarisasi berdasarkan threshold nol.
+- `fit_prior=True`: menghitung probabilitas awal dari distribusi data pelatihan.
+- `class_prior=None`: prior kelas tidak ditentukan secara manual.
+
 - **Kelebihan:**
   - Cepat dalam pelatihan dan prediksi.
   - Cocok untuk data biner seperti hasil One-Hot Encoding.
@@ -141,7 +148,14 @@ Model dipilih berdasarkan karakteristik data yang memiliki kombinasi fitur kateg
   - Precision rendah (banyak false positive).
   - Asumsi independensi antar fitur sering tidak realistis.
 
+---
+
 #### 🌲 Random Forest Classifier
+
+Model ini dikonfigurasi dengan:
+- `n_estimators=100`: menggunakan 100 pohon keputusan.
+- `random_state=42`: untuk reprodusibilitas hasil.
+
 - **Kelebihan:**
   - Dapat menangani fitur kategorikal dan numerik dengan baik.
   - Cenderung tidak overfitting karena menggunakan banyak pohon.
@@ -150,7 +164,14 @@ Model dipilih berdasarkan karakteristik data yang memiliki kombinasi fitur kateg
   - Waktu pelatihan lebih lama.
   - Kurang transparan dibanding model linier.
 
+---
+
 #### 📈 Logistic Regression
+
+Model ini dikonfigurasi dengan:
+- `max_iter=1000`: batas maksimum iterasi ditingkatkan untuk memastikan konvergensi.
+- `random_state=42`: untuk memastikan hasil konsisten.
+
 - **Kelebihan:**
   - Mudah diinterpretasikan dan transparan.
   - Cepat dalam pelatihan dan prediksi.
@@ -159,7 +180,15 @@ Model dipilih berdasarkan karakteristik data yang memiliki kombinasi fitur kateg
   - Asumsi hubungan linear antara fitur dan target logit.
   - Kurang efektif untuk data yang sangat kompleks atau tidak linear.
 
+---
+
 #### 🔵 Support Vector Machine (SVM)
+
+Model ini menggunakan:
+- `kernel='rbf'`: kernel radial basis function untuk menangani non-linearitas.
+- `probability=True`: memungkinkan estimasi probabilitas (berguna untuk evaluasi probabilistik).
+- `random_state=42`: untuk memastikan hasil dapat direproduksi.
+
 - **Kelebihan:**
   - Kuat untuk data berdimensi tinggi.
   - Dapat menangani non-linearitas dengan kernel (misalnya RBF).
@@ -168,6 +197,7 @@ Model dipilih berdasarkan karakteristik data yang memiliki kombinasi fitur kateg
   - Parameter C dan gamma perlu tuning hati-hati.
 
 ---
+
 
 ## 📈 6. Evaluation
 
