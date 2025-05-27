@@ -82,11 +82,32 @@ Penerapan model prediksi churn juga telah menunjukkan hasil yang menjanjikan. Mi
 | `TotalCharges`      | Total biaya yang dibayarkan selama menjadi pelanggan                     |
 | `Churn`             | Target/label: Apakah pelanggan berhenti (`Yes`) atau tetap (`No`)        |
 
+### Pemeriksaan Data Awal
+
+#### Struktur Data
+Dataset memiliki 21 kolom dengan 7043 baris data pelanggan. Semua baris memiliki nilai unik di kolom `customerID`.
+
+#### Missing Values
+Pemeriksaan awal menunjukkan tidak ada missing values pada sebagian besar kolom. Namun, kolom `TotalCharges` awalnya bertipe `object` karena berisi nilai kosong berupa spasi (`" "`). Setelah dikonversi ke tipe `float`, nilai kosong ini menjadi `NaN`. Sebanyak 11 nilai `NaN` ditemukan dan ditangani pada tahap data preparation.
+
+#### Duplikasi Data
+Tidak ditemukan duplikasi baris berdasarkan pemeriksaan pada data.
+
+#### Tipe Data Tidak Konsisten
+- `TotalCharges` perlu dikonversi dari `object` ke `float` agar bisa digunakan sebagai fitur numerik.
+- Kolom target `Churn` bertipe string (`Yes`/`No`) dan perlu dikonversi ke numerik (`1`/`0`) sebelum modeling.
+
+#### Outlier
+Berdasarkan pemeriksaan outlier, data tampak normal
+
+---
+
 ### 📉 Distribusi Churn Pelanggan
 
 Gambar di bawah menunjukkan bahwa mayoritas pelanggan **tidak melakukan churn** (sekitar 73%), sementara hanya sekitar **27% pelanggan yang churn**.
 
-![Persentase Churn Pelanggan](img/Screenshot%202025-05-25%20144300.png)
+![Persentase Churn Pelanggan]![Screenshot 2025-05-25 144300](https://github.com/user-attachments/assets/437737ea-bbde-41da-9e88-ec99becb647d)
+
 
 ### 🔗 Korelasi Fitur Numerik
 
@@ -99,20 +120,31 @@ Heatmap berikut memperlihatkan korelasi antara fitur numerik terhadap variabel t
 
 
 ---
-## 🧹 4. Data Preparation
 
-### 4.1 Data Cleaning
-- Menghapus kolom `customerID` karena tidak relevan.
-- Memisahkan fitur (`X`) dan target (`y`).
+## 4. Data Preparation
 
-### 4.2 Train-Test Split
-- Proporsi 80:20
-- Data latih: 5634, Data uji: 1409
+### 4.1 Konversi dan Penanganan `TotalCharges`
+- Kolom `TotalCharges` dikonversi ke `float`.
+- Sebanyak 11 nilai kosong yang menjadi `NaN` diisi dengan **median** kolom tersebut.
 
-### 4.3 Encoding dan Normalisasi
-- **OneHotEncoder** digunakan untuk fitur kategorikal.
-- **MinMaxScaler** digunakan untuk fitur numerik (`tenure`, `MonthlyCharges`, dll.).
-- Fitur yang telah di-encode dan diskalakan digabung menjadi `X_train_final` dan `X_test_final`.
+### 4.2 Encoding Target
+- Kolom target `Churn` dikonversi dari `'Yes'`/`'No'` menjadi `1`/`0`.
+
+### 4.3 Penghapusan Kolom Tidak Relevan
+- Kolom `customerID` dihapus karena tidak memiliki kontribusi prediktif.
+
+### 4.4 Train-Test Split
+- Data dibagi dengan rasio **70:30** menggunakan `train_test_split`.
+- Hasil pembagian:
+  - **Data latih**: 4930 baris
+  - **Data uji**: 2113 baris
+- Stratifikasi digunakan untuk memastikan distribusi churn tetap seimbang.
+
+### 4.5 Encoding dan Normalisasi
+- Fitur kategorikal diencode menggunakan **OneHotEncoder** (`drop='first'`).
+- Fitur numerik seperti `tenure`, `MonthlyCharges`, dan `TotalCharges` dinormalisasi menggunakan **MinMaxScaler**.
+- Hasil akhir encoding dan normalisasi digabung menjadi `X_train_final` dan `X_test_final` yang siap digunakan untuk pelatihan model.
+"""
 
 ---
 
@@ -133,6 +165,8 @@ Model dipilih berdasarkan karakteristik data yang memiliki kombinasi fitur kateg
 ### 5.2 Training dan Evaluasi Model
 
 #### ✅ Bernoulli Naive Bayes
+**Cara kerja:**  
+Bernoulli Naive Bayes adalah algoritma klasifikasi berbasis **Teorema Bayes** yang mengasumsikan bahwa fitur-fitur bersifat **saling independen**. Model ini menghitung probabilitas kelas berdasarkan keberadaan atau ketidakhadiran fitur biner. Untuk setiap fitur, model memperkirakan probabilitas bahwa fitur tersebut bernilai 1 (ada) atau 0 (tidak ada) terhadap setiap kelas (`Churn = Yes` atau `No`), dan hasil akhirnya didapat dengan mengalikan semua probabilitas tersebut. Model ini sangat cocok untuk fitur hasil dari **One-Hot Encoding**.
 
 Model ini menggunakan parameter default, dengan beberapa penyesuaian sebagai berikut:
 - `alpha=1.0`: smoothing Laplace untuk menghindari probabilitas nol.
@@ -152,6 +186,9 @@ Model ini menggunakan parameter default, dengan beberapa penyesuaian sebagai ber
 
 #### 🌲 Random Forest Classifier
 
+**Cara kerja:**  
+Random Forest merupakan model **ensemble** yang terdiri dari banyak **decision trees**. Setiap pohon dibangun dari **subset acak** data (menggunakan teknik **bagging**) dan subset fitur. Saat melakukan prediksi, setiap pohon memberikan "suara" (voting), dan hasil akhir diambil dari mayoritas. Pendekatan ini membuat model tahan terhadap overfitting dan meningkatkan akurasi.
+
 Model ini dikonfigurasi dengan:
 - `n_estimators=100`: menggunakan 100 pohon keputusan.
 - `random_state=42`: untuk reprodusibilitas hasil.
@@ -168,6 +205,9 @@ Model ini dikonfigurasi dengan:
 
 #### 📈 Logistic Regression
 
+**Cara kerja:**  
+Logistic Regression memodelkan hubungan antara fitur dan target biner dengan menggunakan **fungsi sigmoid**. Model ini menghitung kombinasi linier dari input fitur, lalu memetakan hasilnya ke nilai antara 0 dan 1, yang diinterpretasikan sebagai probabilitas kelas positif (`Churn = Yes`). Jika probabilitas di atas threshold (biasanya 0.5), maka diklasifikasikan sebagai churn.
+
 Model ini dikonfigurasi dengan:
 - `max_iter=1000`: batas maksimum iterasi ditingkatkan untuk memastikan konvergensi.
 - `random_state=42`: untuk memastikan hasil konsisten.
@@ -183,6 +223,9 @@ Model ini dikonfigurasi dengan:
 ---
 
 #### 🔵 Support Vector Machine (SVM)
+**Cara kerja:**  
+SVM bekerja dengan mencari **hyperplane optimal** yang dapat memisahkan dua kelas dengan **margin maksimum**. Model ini hanya bergantung pada data yang berada paling dekat dengan batas pemisah (disebut **support vectors**). Untuk data yang tidak dapat dipisahkan secara linier, digunakan **kernel trick** (seperti RBF) untuk memetakan data ke ruang berdimensi lebih tinggi, sehingga dapat dipisahkan secara linier di ruang tersebut.
+
 
 Model ini menggunakan:
 - `kernel='rbf'`: kernel radial basis function untuk menangani non-linearitas.
