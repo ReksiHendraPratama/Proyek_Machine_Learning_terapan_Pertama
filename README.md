@@ -106,7 +106,7 @@ Berdasarkan pemeriksaan outlier, data tampak normal
 
 Gambar di bawah menunjukkan bahwa mayoritas pelanggan **tidak melakukan churn** (sekitar 73%), sementara hanya sekitar **27% pelanggan yang churn**.
 
-![Persentase Churn Pelanggan]![Screenshot 2025-05-25 144300](https://github.com/user-attachments/assets/437737ea-bbde-41da-9e88-ec99becb647d)
+![Screenshot 2025-05-25 144300](https://github.com/user-attachments/assets/437737ea-bbde-41da-9e88-ec99becb647d)
 
 
 ### 🔗 Korelasi Fitur Numerik
@@ -116,7 +116,8 @@ Heatmap berikut memperlihatkan korelasi antara fitur numerik terhadap variabel t
 - `tenure` memiliki korelasi negatif dengan churn (-0.35), menunjukkan pelanggan yang lebih lama cenderung tidak churn.
 - `MonthlyCharges` memiliki korelasi positif (0.19), menunjukkan semakin tinggi tagihan, kemungkinan churn meningkat.
 
-![Matriks Korelasi Fitur Numerik](img/Screenshot%202025-05-25%20144438.png)
+![Screenshot 2025-05-25 144438](https://github.com/user-attachments/assets/6c955d97-82b0-4f57-96c1-56f0f28f7af5)
+
 
 
 ---
@@ -275,16 +276,17 @@ Model ini menggunakan:
 Berikut adalah visualisasi confusion matrix untuk masing-masing model:
 
 #### 📊 Bernoulli Naive Bayes
-![Confusion Matrix - BernoulliNB](img/Screenshot%202025-05-25%20144453.png)
+![Screenshot 2025-05-25 144453](https://github.com/user-attachments/assets/7eae5260-0ca8-4d3b-a488-5bac9eabf897)
 
 #### 🌲 Random Forest
-![Confusion Matrix - RandomForest](img/Screenshot%202025-05-25%20144516.png)
+![Screenshot 2025-05-25 144516](https://github.com/user-attachments/assets/00f21ccb-ae8d-464f-82c4-330bfeabb19b)
 
 #### 📈 Logistic Regression
-![Confusion Matrix - LogisticRegression](img/Screenshot%202025-05-25%20144523.png)
+![Screenshot 2025-05-25 144523](https://github.com/user-attachments/assets/bffa4bf3-9118-423b-b2cd-cef8d614368b)
 
 #### 🔵 Support Vector Machine (SVM)
-![Confusion Matrix - SVM](img/Screenshot%202025-05-25%20144530.png)
+![Screenshot 2025-05-25 144530](https://github.com/user-attachments/assets/1f9b1cca-07ab-4d62-8cda-9e11292882e2)
+
 
 
 ---
