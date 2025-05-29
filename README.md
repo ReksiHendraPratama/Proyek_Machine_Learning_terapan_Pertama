@@ -126,7 +126,7 @@ Heatmap berikut memperlihatkan korelasi antara fitur numerik terhadap variabel t
 
 ### 4.1 Konversi dan Penanganan `TotalCharges`
 - Kolom `TotalCharges` dikonversi ke `float`.
-- Sebanyak 11 nilai kosong yang menjadi `NaN` diisi dengan **median** kolom tersebut.
+- Sebanyak 11 nilai kosong yang menjadi `NaN` diisi dengan **mean** kolom tersebut.
 
 ### 4.2 Encoding Target
 - Kolom target `Churn` dikonversi dari `'Yes'`/`'No'` menjadi `1`/`0`.
